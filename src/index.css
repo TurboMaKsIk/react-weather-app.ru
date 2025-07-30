@@ -1,0 +1,23 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-image: url(./img/3ea4d828a5d54cb1e7c810e35edf916a.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: ;
+}
+
+span {
+    background-color: #fff;
+
+}
