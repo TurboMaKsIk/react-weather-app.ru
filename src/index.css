@@ -138,8 +138,8 @@ header {
     }
     .block-two {
         position: absolute;
-        top: 50%;
-        right: 10%;
+        top: 40%;
+        right: 0%;
         & h1 {
             font-size: 20px;
         }
