@@ -14,6 +14,7 @@ function App() {
 
     useEffect(() => {
       apitech();
+      setError(false);
     }, [city]);
 
 
@@ -29,13 +30,13 @@ function App() {
         country: res.data.location.country,
         region: res.data.location.region,
         icon: res.data.current.condition.icon,
-        text: res.data.current.text,
+        text: res.data.current.condition.text,
       }));
       setLoading(true);
-      console.log(locations.temp);
     })
     .catch(error => {
-      console.error('Ошибка загрузки! ' + error.status);
+      console.error('Ошибка загрузки! ' + error.name);
+      error.status === 400 ? setError(`вы ввели не существующий город!`):setError(false);
       setLoading(true);
     })
   }
@@ -47,7 +48,7 @@ function App() {
   }
   return (
     <div className="container">
-      {error && <h1>Ошибка!</h1>}
+      {error && <p className='error-title'>{error}</p>}
       <Header setCity={setCity} setError={setError}></Header>
       <Main locations={locations}/>
       <p className='copyright'>© М. А. Шалаев, 2025</p>

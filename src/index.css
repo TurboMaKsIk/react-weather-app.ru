@@ -26,6 +26,17 @@ body {
     height: 40px;
 }
 
+.error-title {
+    text-align: center;
+    color: #ffffff;
+    border-radius: 15px;
+    background-color: #ff6868;
+    display: block;
+    line-height: 1.8em;
+    width: 18em;
+    height: 2em;
+}
+
 .container {
     height: 100%;
     padding: 0 50px;
@@ -146,6 +157,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
 }
 
 .block-two-icon {
