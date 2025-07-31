@@ -175,6 +175,9 @@ header {
 
 /*Разрешение 375px*/
 @media screen and (max-width: 375px) {
+    .header-title {
+        text-align: center;
+    }
     .container {
         justify-content: space-around;
     }

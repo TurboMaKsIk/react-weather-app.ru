@@ -14,12 +14,13 @@ function App() {
 
     useEffect(() => {
       apitech();
+      document.title = `${city} | погода`;
       setError(false);
     }, [city]);
 
 
   const apitech = () => {
-    axios.get(`https://api.weatherapi.com/v1/current.json?key=5affe47452424a17a68185535252407&q=${city}&aqi=no`)
+    axios.get(`https://api.weatherapi.com/v1/current.json?key=5affe47452424a17a68185535252407&q=${city ? city:'Сердобск'}&aqi=no`)
     .then(res => {
       setLocation(e => ({
         ...e,
