@@ -12,6 +12,7 @@ const Header = ({ setCity }) => {
             <h1 className='header-title'>WEATHER-APP</h1>
             <form action={submit} className='form-app'>
                 <input name='city' type="text" placeholder='введите город...'/>
+                <button type="submit">ПОИСК</button>
             </form>
         </header>
     );
