@@ -2,14 +2,23 @@
     margin: 0;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
+    height: 100vh;
     padding: 0;
     background-image: url(./img/15c9d6a120b80502f341003f80c1870dd981a9ab_high.webp);
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#root {
+    height: 100%;
 }
 
 .icons {
@@ -23,7 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 header {
@@ -65,6 +74,9 @@ header {
     min-width: 300px;
     max-width: 800px;
     width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -85,13 +97,14 @@ header {
 
 .block-temp {
     display: block;
-    font-size: 120px;
+    font-size: 100px;
     font-family:Arial, Helvetica, sans-serif;
 }
 
 .block-time {
     display: block;
     font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .block-one-country {
@@ -125,10 +138,17 @@ header {
     height: 300px;
 }
 
+.copyright {
+    color: #fff;
+}
+
 
 
 /*Разрешение 375px*/
 @media screen and (max-width: 375px) {
+    .container {
+        justify-content: space-around;
+    }
     .main {
         position: relative;
         flex-direction: column;
@@ -137,11 +157,14 @@ header {
         height: 100%;
     }
     .block-two {
+        text-align: center;
+        width: 100px;
         position: absolute;
-        top: 40%;
+        top: 50%;
         right: 0%;
         & h1 {
             font-size: 20px;
+            text-wrap: wrap;
         }
     }
     .block-two-icon {
