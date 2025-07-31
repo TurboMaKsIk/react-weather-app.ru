@@ -6,7 +6,6 @@ const Main = ({ state, currents }) => {
         <div className="main">
         <div className="block-one">
           <h1 className='block-temp'>{currents.temp_c}°</h1>
-          <h1 className='block-time'>{state.localtime}</h1>
           <div className="block-one-country">
             <p>{state.name}</p>
             <p>{state.country}, {state.region}</p>

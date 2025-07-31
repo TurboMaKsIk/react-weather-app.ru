@@ -160,7 +160,7 @@ header {
         text-align: center;
         width: 100px;
         position: absolute;
-        top: 50%;
+        top: 35%;
         right: 0%;
         & h1 {
             font-size: 20px;
