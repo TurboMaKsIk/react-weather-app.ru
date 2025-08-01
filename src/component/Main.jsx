@@ -1,16 +1,26 @@
 import React from 'react';
-import Sun from '../img/sun.png'
+import Sunny from "../img/icon/sunny-day-3.svg";
+import Overcast from "../img/icon/overcast-5.svg";
+import SunnyCloudy from "../img/icon/sunny-to-cloudy-day.svg";
+import CloudyRuiny from "../img/icon/cloudy-to-rainy-day.svg";
+import lightning from "../img/icon/lightning-22.svg";
+import ModerateRain from "../img/icon/moderate-rain-5.svg";
+import HeavyRain from "../img/icon/heavy-rain-10.svg";
+import LightRain from "../img/icon/light-rain.svg";
+import RainBold from "../img/icon/thunder-shower-9.svg";
+import RainStorm from "../img/icon/thunder-shower-9.svg";
+
 
 const Main = ({ locations }) => {
     return (
         <div className="main">
         <div className="block-one">
-          <h1 className='block-temp'>{`${locations.temp}°`}</h1>
           <div className="block-one-country">
             <p>{locations.name}</p>
-            <p>{`${locations.country}, ${locations.region}`}</p>
           </div>
-          <div className="block-one-data">
+            <NewWeatherIcon locations={locations}></NewWeatherIcon>
+          <h1 className='block-temp'>{`${locations.temp}°`}</h1>
+          {/* <div className="block-one-data">
             <div className="temp-data">
               <span>Ветер</span>
               <p>{`${locations.wind} м/с`}</p>
@@ -19,14 +29,50 @@ const Main = ({ locations }) => {
               <span>Влажность</span>
               <p>{`${locations.hum}%`}</p>
             </div>
-          </div>
-        </div>
-        <div className="block-two">
-          <img src={locations.icon} alt="" className='block-two-icon' />
-          <h1>{locations.text}</h1>
+          </div> */}
         </div>
         </div>
     );
+}
+
+const NewWeatherIcon = ({ locations }) => {
+  const createNewIcon = (e) => {
+    if (e.is_day === 1) {
+      if (e.code === 1000) {
+        return Sunny;
+      }
+      else if (e.code === 1003) {
+        return SunnyCloudy;
+      }
+      else if (e.code === 1006) {
+        return Overcast;
+      }
+      else if (e.code === 1009) {
+        return Overcast;
+      }
+      else if (e.code === 1063) {
+        return LightRain;
+      }
+      else if (e.code === 1183 || e.code === 1180) {
+        return ModerateRain;
+      }
+      else if (e.code === 1195) {
+        return HeavyRain;
+      }
+      else if (e.code === 1246) {
+        return RainStorm;
+      }
+      else if (e.code === 1276) {
+        return RainBold;
+      }
+    }
+  }
+
+  return (
+    <div className="block-two">
+      <img src={createNewIcon(locations)} alt="" className='block-two-icon' />
+    </div>
+  );
 }
 
 export default Main;

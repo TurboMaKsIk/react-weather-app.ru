@@ -30,8 +30,9 @@ function App() {
         name: res.data.location.name,
         country: res.data.location.country,
         region: res.data.location.region,
-        icon: res.data.current.condition.icon,
+        code: res.data.current.condition.code,
         text: res.data.current.condition.text,
+        is_day: res.data.current.is_day,
       }));
       setLoading(true);
     })
