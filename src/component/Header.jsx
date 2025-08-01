@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from "../img/search.png";
 
 const Header = ({ setCity }) => {
 
@@ -12,7 +13,9 @@ const Header = ({ setCity }) => {
             <h1 className='header-title'>WEATHER-APP</h1>
             <form action={submit} className='form-app'>
                 <input name='city' type="text" placeholder='введите город...'/>
-                <button type="submit">ПОИСК</button>
+                <button type="submit">
+                    <img src={Search} alt="" />
+                </button>
             </form>
         </header>
     );

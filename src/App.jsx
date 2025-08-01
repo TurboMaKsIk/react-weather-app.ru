@@ -35,6 +35,7 @@ function App() {
         is_day: res.data.current.is_day,
       }));
       setLoading(true);
+      console.log(res.data.current);
     })
     .catch(error => {
       console.error('Ошибка загрузки! ' + error.name);

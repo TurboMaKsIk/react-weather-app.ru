@@ -81,16 +81,23 @@ header {
         background-color: rgba(255, 255, 255, 60%);
     }
     & button {
-        display: block;
-        height: 40%;
-        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
         background-color: rgba(255, 255, 255, 60%);
         outline: none;
         border: none;
-        border-radius: 10px;
+        border-radius: 100%;
         font-size: 16px;
         &:active {
             background-color: rgba(255, 255, 255, 20%);
+        }
+        & img {
+            width: 25px;
+            height: 25px;
         }
     }
 }
@@ -176,6 +183,8 @@ header {
 }
 
 .copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
     color: #fff;
 }
 
