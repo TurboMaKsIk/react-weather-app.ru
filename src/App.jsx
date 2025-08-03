@@ -41,13 +41,16 @@ function App() {
     .catch(error => {
       console.error('Ошибка загрузки! ' + error.name);
       error.status === 400 ? setError(`вы ввели не существующий город!`):setError(false);
-      setLoading(true);
+      setLoading(false);
     })
   }
 
   if (!loading) {
     return (
-      <h1>Минуту, подождите</h1>
+      <div className="container">
+        <h1 className='loader-title'>Загрузка данных</h1>
+        <span className='loader'></span>
+      </div>
     );
   }
   return (
