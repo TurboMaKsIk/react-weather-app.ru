@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    height: 100vh;
+    height: 1300px;
     padding: 0;
     background-image: url(./img/15c9d6a120b80502f341003f80c1870dd981a9ab_high.webp);
     background-position: center;
@@ -43,7 +43,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 header {
@@ -70,6 +70,7 @@ header {
     width: 100%;
     height: 120px;
     & input {
+        position: relative;
         user-select: none;
         font-size: 20px;
         width: 100%;
@@ -82,6 +83,8 @@ header {
         background-color: rgba(255, 255, 255, 60%);
     }
     & button {
+        position: absolute;
+        right: 7%;
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -114,8 +117,8 @@ header {
     min-width: 375px;
     max-width: 800px;
     width: 100%;
-    min-height: 400px;
-    max-height: 480px;
+    min-height: 460px;
+    max-height: 500px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -230,10 +233,71 @@ header {
     margin: 0 4px;
     padding: 6px 0;
     height: 100px;
+    color: #fff;
     & span {
         width: 60%;
         height: 2px;
         background-color: #fff;
+    }
+}
+
+.forecast-future-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 375px;
+    max-width: 800px;
+    width: 100%;
+    height: 500px;
+    z-index: 9999;
+    h1 {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.forecast-future-block {
+    min-width: 375px;
+    max-width: 800px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-evenly;
+    overflow-y: hidden;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 30%);
+    margin-top: 20px;
+    &::-webkit-scrollbar{ 
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track{
+        width: 3px;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 10%);
+    }
+    &::-webkit-scrollbar-thumb{
+        width: 4px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 60%);
+    }
+}
+
+.forecast-future-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+        margin-top: 10px;
+        font-size: 24px;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
     }
 }
 
@@ -261,6 +325,14 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #fff;
+}
+
+.version {
+    font-size: 14px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    margin: 10px 0;
 }
 
 .loader {

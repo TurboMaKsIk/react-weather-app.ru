@@ -2,6 +2,7 @@ import './index.css'
 import { useEffect, useState } from 'react';
 import Header from './component/Header';
 import Main from './component/Main';
+import ModuleForecastBox from './component/ModuleForecastBox';
 import React from 'react';
 import axios from 'axios';
 
@@ -37,6 +38,7 @@ function App() {
         forecastFuture: res.data.forecast,
       }));
       setLoading(true);
+      console.log(res.data.forecast);
     })
     .catch(error => {
       console.error('Ошибка загрузки! ' + error.name);
@@ -58,7 +60,23 @@ function App() {
       {error && <p className='error-title'>{error}</p>}
       <Header setCity={setCity} setError={setError}></Header>
       <Main locations={locations}/>
+      <div className="forecast-future-container">
+      <h1>Прогноз погоды</h1>
+        <div className='forecast-future-title'>
+          <p>{locations.forecastFuture.forecastday[1].date}</p>
+          <div className="forecast-future-block">
+            {locations.forecastFuture.forecastday[1].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
+          </div>
+        </div>
+        <div className='forecast-future-title'>
+          <p>{locations.forecastFuture.forecastday[1].date}</p>
+            <div className="forecast-future-block">
+              {locations.forecastFuture.forecastday[2].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
+            </div>
+        </div>
+      </div>
       <p className='copyright'>© М. А. Шалаев, 2025</p>
+      <p className='version'>v 1.2</p>
     </div>
   );
 }
