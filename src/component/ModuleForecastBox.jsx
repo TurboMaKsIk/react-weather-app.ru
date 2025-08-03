@@ -1,7 +1,4 @@
 import React from 'react';
-import NewWeatherIcon from './NewWeatherIcon';
-
-const tootle = document.querySelectorAll('.imgTootle');
 
 
 const ModuleForecastBox = ({ locations }) => {

@@ -34,9 +34,9 @@ function App() {
         text: res.data.current.condition.text,
         is_day: res.data.current.is_day,
         hourForecast: res.data.forecast.forecastday[0].hour,
+        forecastFuture: res.data.forecast,
       }));
       setLoading(true);
-      console.log(res.data.forecast.forecastday[0].hour);
     })
     .catch(error => {
       console.error('Ошибка загрузки! ' + error.name);
