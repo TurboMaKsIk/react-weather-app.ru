@@ -18,9 +18,9 @@ function App() {
       setError(false);
     }, [city]);
 
-
+    
   const apitech = () => {
-    axios.get(`https://api.weatherapi.com/v1/current.json?key=5affe47452424a17a68185535252407&q=${city ? city:'Сердобск'}&aqi=no`)
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=5affe47452424a17a68185535252407&q=${city ? city:'Сердобск'}&days=3&aqi=no&alerts=no`)
     .then(res => {
       setLocation(e => ({
         ...e,
@@ -33,9 +33,10 @@ function App() {
         code: res.data.current.condition.code,
         text: res.data.current.condition.text,
         is_day: res.data.current.is_day,
+        hourForecast: res.data.forecast.forecastday[0].hour,
       }));
       setLoading(true);
-      console.log(res.data.current);
+      console.log(res.data.forecast.forecastday[0].hour);
     })
     .catch(error => {
       console.error('Ошибка загрузки! ' + error.name);
