@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    height: 1300px;
+    height: 1350px;
     padding: 0;
     background-image: url(./img/15c9d6a120b80502f341003f80c1870dd981a9ab_high.webp);
     background-position: center;
@@ -269,7 +269,6 @@ header {
     justify-content: space-evenly;
     overflow-y: hidden;
     z-index: 9999;
-    background-color: rgba(255, 255, 255, 30%);
     margin-top: 20px;
     &::-webkit-scrollbar{ 
         width: 4px;
@@ -293,6 +292,8 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 30%);
+    border-radius: 25px 25px 0 0;
     p {
         margin-top: 10px;
         font-size: 24px;

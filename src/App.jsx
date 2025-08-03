@@ -63,20 +63,20 @@ function App() {
       <div className="forecast-future-container">
       <h1>Прогноз погоды</h1>
         <div className='forecast-future-title'>
-          <p>{locations.forecastFuture.forecastday[1].date}</p>
+          <p>{`Дата ${locations.forecastFuture.forecastday[1].date}`}</p>
           <div className="forecast-future-block">
             {locations.forecastFuture.forecastday[1].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
           </div>
         </div>
         <div className='forecast-future-title'>
-          <p>{locations.forecastFuture.forecastday[1].date}</p>
+          <p>{`Дата ${locations.forecastFuture.forecastday[2].date}`}</p>
             <div className="forecast-future-block">
               {locations.forecastFuture.forecastday[2].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
             </div>
         </div>
       </div>
       <p className='copyright'>© М. А. Шалаев, 2025</p>
-      <p className='version'>v 1.2</p>
+      <p className='version'>v 1.202</p>
     </div>
   );
 }
