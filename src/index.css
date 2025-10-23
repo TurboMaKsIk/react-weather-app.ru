@@ -11,7 +11,7 @@ body {
     height: 100%;
     width: 100%;
     padding: 0;
-    background-image: url(F:\webservers\react-weather-app.ru\src\img\3ea4d828a5d54cb1e7c810e35edf916a.jpg);
+    background-image: url(./img/3ea4d828a5d54cb1e7c810e35edf916a.jpg);
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -412,6 +412,6 @@ header {
         height: 150px;
     }
     body {
-        background-image: url(F:\webservers\react-weather-app.ru\src\img\0b6ce24bcfe1ad3c6de2a234c47a5aac.jpg);
+        background-image: url(./img/0b6ce24bcfe1ad3c6de2a234c47a5aac.jpg);
     }
 }
