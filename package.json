@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "weather-app",
+  "version": "1.202",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",

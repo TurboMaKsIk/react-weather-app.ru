@@ -7,9 +7,11 @@ html {
 }
 
 body {
-    height: 1350px;
+    /* height: 1350px; */
+    height: 100%;
+    width: 100%;
     padding: 0;
-    background-image: url(./img/15c9d6a120b80502f341003f80c1870dd981a9ab_high.webp);
+    background-image: url(F:\webservers\react-weather-app.ru\src\img\3ea4d828a5d54cb1e7c810e35edf916a.jpg);
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -140,12 +142,19 @@ header {
     color: #fff;
 }
 
+.titleDataInfo {
+    color: #fff;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
 .block-temp {
     display: block;
     font-size: 75px;
     font-weight: 400;
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
+    text-decoration: none;
 }
 
 .block-time {
@@ -293,7 +302,6 @@ header {
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 30%);
-    border-radius: 25px 25px 0 0;
     p {
         margin-top: 10px;
         font-size: 24px;
@@ -322,10 +330,19 @@ header {
     }
 }
 
+.dataModules-block {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .copyright {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #fff;
+    margin-top: 20px;
 }
 
 .version {
@@ -393,5 +410,8 @@ header {
     .block-two-icon {
         width: 150px;
         height: 150px;
+    }
+    body {
+        background-image: url(F:\webservers\react-weather-app.ru\src\img\0b6ce24bcfe1ad3c6de2a234c47a5aac.jpg);
     }
 }
