@@ -411,6 +411,9 @@ header {
         width: 150px;
         height: 150px;
     }
+}
+
+@media screen and (max-width: 425px) {
     body {
         background-image: url(./img/0b6ce24bcfe1ad3c6de2a234c47a5aac.jpg);
     }
