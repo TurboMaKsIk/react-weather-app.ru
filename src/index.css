@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    padding: 0;
 }
 
 html {
@@ -63,6 +64,7 @@ header {
 }
 
 .form-app {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +74,6 @@ header {
     width: 100%;
     height: 120px;
     & input {
-        position: relative;
         user-select: none;
         font-size: 20px;
         width: 100%;
@@ -86,14 +87,15 @@ header {
     }
     & button {
         position: absolute;
-        right: 7%;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 50px;
-        width: 50px;
+        right: -6%;
+        bottom: 64%;
+        height: 40px;
+        width: 40px;
         background-color: rgba(255, 255, 255, 60%);
         outline: none;
         border: none;
@@ -145,7 +147,6 @@ header {
 .titleDataInfo {
     color: #fff;
     text-decoration: underline;
-    margin-bottom: 20px;
 }
 
 .block-temp {
@@ -331,11 +332,39 @@ header {
 }
 
 .dataModules-block {
-    height: 80px;
+    height: 100px;
+    width: 190px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 30%);
+    padding: 10px 0;
+    & span {
+        content: '';
+        background-color: #fff;
+        height: 2px;
+        width: 70%;
+    }
+}
+
+.dataModules-block-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    & img {
+        display: block;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.dataModules-block-data {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .copyright {
@@ -354,7 +383,6 @@ header {
 }
 
 .loader {
-    position: absolute;
     width: 48px;
     height: 48px;
     border: 5px solid #FFF;
@@ -364,6 +392,16 @@ header {
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
     }
+
+.loader-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: 'fixed'
+}
 
 @keyframes rotation {
     0% {
@@ -376,8 +414,6 @@ header {
 
 .loader-title {
     color: #fff;
-    position: absolute;
-    top: 40%;
 }
 
 
@@ -416,5 +452,8 @@ header {
 @media screen and (max-width: 425px) {
     body {
         background-image: url(./img/0b6ce24bcfe1ad3c6de2a234c47a5aac.jpg);
+    }
+    .dataModules-block-title h2 {
+        font-size: 18px;
     }
 }

@@ -8,6 +8,7 @@ const DataModuls = ({ children, dataText, propImg }) => {
                 <img src={propImg} alt="" />
                 <h2>{children}</h2>
             </div>
+            <span></span>
             <div className="dataModules-block-data">
                 {dataText}
             </div>

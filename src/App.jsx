@@ -1,13 +1,16 @@
 import './index.css'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './component/Header';
 import Main from './component/Main';
-import ModuleForecastBox from './component/ModuleForecastBox';
 import DataModuls from './component/DataModuls';
-import React from 'react';
+import ForecastBlock from './component/ForecastBlock';
+import TitleComponent from './component/TitleComponent';
+import HUMICON from './img/humagince.png';
+import TEMPICON from './img/temperature.png';
+import WINDICON from './img/wind.png';
 import axios from 'axios';
 
-const APPVERSE = '1.206';
+const APPVERSE = 'Vers 1.777';
 
 const MOUNTH = [
   'январь',
@@ -26,7 +29,7 @@ const MOUNTH = [
 
 function App() {
   const [error, setError] = useState(false);
-  const [city, setCity] = useState('Serdobsk');
+  const [city, setCity] = useState('Сердобск');
   const [locations, setLocation] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +39,6 @@ function App() {
       setError(false);
     }, [city]);
 
-    
   const apitech = () => {
     axios.get(`https://api.weatherapi.com/v1/forecast.json?key=5affe47452424a17a68185535252407&q=${city ? city:'Сердобск'}&days=3&aqi=no&alerts=no`)
     .then(res => {
@@ -59,18 +61,24 @@ function App() {
       console.log(res.data.forecast);
     })
     .catch(error => {
+      setLoading(false);
       console.error('Ошибка загрузки! ' + error.name);
       error.status === 400 ? setError(`вы ввели не существующий город!`):setError(false);
-      setLoading(false);
     })
+  }
+
+  const getDataMounth = (num) => {
+    let mounth = locations.forecastFuture.forecastday[num].date.slice(-5, -3);
+    let day = locations.forecastFuture.forecastday[num].date.slice(-2);
+    return `Дата ${day} ${MOUNTH[--mounth]}`
   }
 
   if (!loading) {
     return (
-      <div style={{position: 'fixed'}} className="container">
-        <h1 className='loader-title'>Загрузка данных</h1>
-        <span className='loader'></span>
-      </div>
+        <div className='loader-block'>
+          <h1 className='loader-title'>Загрузка данных</h1>
+          <span className='loader'></span>
+        </div>
     );
   }
   return (
@@ -79,26 +87,16 @@ function App() {
       <Header setCity={setCity} setError={setError}></Header>
       <Main locations={locations}/>
       <div className="forecast-future-container">
-        <h1>Прогноз погоды</h1>
-        <div className='forecast-future-title' style={{borderRadius: `0`}}>
-          <p>{`Дата ${locations.forecastFuture.forecastday[1].date.slice(-2)} ${MOUNTH[9]}`}</p>
-          <div className="forecast-future-block">
-            {locations.forecastFuture.forecastday[1].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
-          </div>
-        </div>
-        <div className='forecast-future-title'>
-          <p>{`Дата ${locations.forecastFuture.forecastday[2].date.slice(-2)}`}</p>
-            <div className="forecast-future-block">
-              {locations.forecastFuture.forecastday[2].hour.map(e => <ModuleForecastBox locations={e} key={e.time} />)}
-            </div>
-        </div>
+        <TitleComponent>Прогноз погоды</TitleComponent>
+        <ForecastBlock locations={locations} getDataMounth={getDataMounth} thisDay={1}></ForecastBlock>
+        <ForecastBlock locations={locations} getDataMounth={getDataMounth} thisDay={2}></ForecastBlock>
       </div>
       <div className="main" style={{flexDirection: `column`, alignItems: `center`}}>
-        <h1 className='titleDataInfo'>Подробные данные</h1>
-        <div className="block-one" style={{borderRadius: '0 0 30px 30px', flexDirection: `row`, flexWrap: `wrap` }}>
-          <DataModuls dataText={`${locations.temp}*`}>Температура</DataModuls>
-          <DataModuls dataText={`${locations.hum}%`}>Влажность</DataModuls>
-          <DataModuls dataText={`${locations.wind}м/с`}>Скорость ветра</DataModuls>
+        <TitleComponent>Подробные данные</TitleComponent>
+        <div className="block-one" style={{borderRadius: '0 0 30px 30px', flexDirection: `row`, justifyContent: 'space-around', flexWrap: `wrap`, marginTop: `20px` }}>
+          <DataModuls dataText={`${locations.temp}°`} propImg={TEMPICON}>Температура</DataModuls>
+          <DataModuls dataText={`${locations.hum}%`} propImg={HUMICON}>Влажность</DataModuls>
+          <DataModuls dataText={`${locations.wind}м/с`} propImg={WINDICON}>Скорость ветра</DataModuls>
         </div>
       </div>
       <p className='copyright'>© М. А. Шалаев, 2025</p>
